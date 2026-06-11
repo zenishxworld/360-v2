@@ -15,15 +15,23 @@ import {
   LogOut,
   MoreHorizontal,
   X,
-  User
+  User,
+  Compass,
+  Star,
+  Bookmark,
+  SlidersHorizontal
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 
 const navigationItems = [
   { title: "Dashboard", url: "/dashboard", icon: Home },
+  { title: "Preferences", url: "/preferences", icon: SlidersHorizontal },
+  { title: "Discover", url: "/discover", icon: Compass },
+  { title: "Recommendations", url: "/recommendations", icon: Star },
+  { title: "Saved", url: "/saved", icon: Bookmark },
+  { title: "Applications", url: "/applications", icon: FileText },
   { title: "Documents", url: "/documents", icon: FolderOpen },
   { title: "Universities", url: "/universities", icon: GraduationCap },
-  { title: "Applications", url: "/applications", icon: FileText },
   { title: "AI Tools", url: "/ai-tools", icon: Bot },
   { title: "Finances", url: "/finances", icon: CreditCard },
   { title: "Visa", url: "/visa", icon: Plane },
@@ -33,8 +41,8 @@ const navigationItems = [
 // Primary navigation items for mobile (most important ones) - ensuring Dashboard is first
 const primaryNavItems = [
   { title: "Dashboard", url: "/dashboard", icon: Home },
-  { title: "Documents", url: "/documents", icon: FolderOpen },
-  { title: "Universities", url: "/universities", icon: GraduationCap },
+  { title: "Discover", url: "/discover", icon: Compass },
+  { title: "Recommendations", url: "/recommendations", icon: Star },
   { title: "Applications", url: "/applications", icon: FileText },
 ];
 

@@ -23,6 +23,10 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import RefundPolicy from "./pages/RefundPolicy";
 import CancellationPolicy from "./pages/CancellationPolicy";
 import Pricing from "./pages/Pricing";
+import Preferences from "./pages/Preferences";
+import Discover from "./pages/Discover";
+import Recommendations from "./pages/Recommendations";
+import Saved from "./pages/Saved";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -54,6 +58,10 @@ const App = () => {
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/" element={<AppLayout />}>
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/preferences" element={<Preferences />} />
+              <Route path="/discover" element={<Discover />} />
+              <Route path="/recommendations" element={<Recommendations />} />
+              <Route path="/saved" element={<Saved />} />
               <Route path="applications" element={<Applications />} />
               <Route path="universities" element={<Universities />} />
               <Route path="visa" element={<Visa />} />

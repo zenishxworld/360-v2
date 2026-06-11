@@ -79,6 +79,7 @@ const navigationItems = [
   { title: "Payments", url: "/payments", icon: CreditCard },
   { title: "Appointments", url: "/appointments", icon: Calendar },
   { title: "Students", url: "/students", icon: GraduationCap },
+  { title: "Interests", url: "/interests", icon: GraduationCap },
   { title: "Support", url: "/support", icon: CommunityIcon },
   { title: "Communications", url: "/communications", icon: ChatLinesIcon },
   { title: "AI Tools", url: "/ai-tools", icon: Bot },

@@ -27,6 +27,7 @@ import NewApplication from "./pages/NewApplication";
 import Communications from "./pages/Communications";
 import SerbiaLeads from "./pages/SerbiaLeads";
 import SerbiaLeadDetails from "./pages/SerbiaLeadDetails";
+import Interests from "./pages/Interests";
 import { ToastDemo } from "./pages/ToastDemo";
 
 const queryClient = new QueryClient();
@@ -63,6 +64,7 @@ function App() {
                 <Route path="/communications" element={<Communications />} />
                 <Route path="/serbia-leads" element={<SerbiaLeads />} />
                 <Route path="/serbia-leads/:id" element={<SerbiaLeadDetails />} />
+                <Route path="/interests" element={<Interests />} />
               </Route>
 
               <Route path="*" element={<NotFound />} />
