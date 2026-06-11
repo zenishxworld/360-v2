@@ -1,0 +1,606 @@
+{
+  "success": true,
+  "data": {
+    "totalCount": 3,
+    "data": [
+      {
+        "id": "rs-ub-001",
+        "name": "University of Belgrade",
+        "code": "UB",
+        "is_active": true,
+        "data": {
+          "official_name": "Univerzitet u Beogradu",
+          "short_name": "UB",
+          "country": "Serbia",
+          "country_code": "RS",
+          "state": "Belgrade",
+          "city": "Belgrade",
+          "address": "Studentski trg 1, 11000 Belgrade, Serbia",
+          "website_url": "https://www.bg.ac.rs",
+          "email": "info@bg.ac.rs",
+          "phone": "+381-11-3207400",
+          "institution_type": "PUBLIC",
+          "type": "COMPREHENSIVE",
+          "founding_year": 1808,
+          "total_students": 89000,
+          "undergraduate_students": 70000,
+          "graduate_students": 19000,
+          "faculty_count": 4200,
+          "world_ranking": 301,
+          "national_ranking": 1,
+          "qs_ranking": 400,
+          "tuition_international_undergraduate": 2000.00,
+          "tuition_international_graduate": 3000.00,
+          "application_fee": 30.00,
+          "currency": "EUR",
+          "scholarships_available": true,
+          "acceptance_rate": 0.35,
+          "application_deadline_fall": "2024-09-01",
+          "commission_rate": 10.0,
+          "english_requirements": { "TOEFL_min": 80, "IELTS_min": 6.0 },
+          "languages_of_instruction": ["Serbian", "English"],
+          "schools_colleges": ["Faculty of Law", "Faculty of Medicine", "Faculty of Engineering", "Faculty of Economics", "Faculty of Philology"],
+          "degree_levels": ["Bachelor", "Master", "Doctorate"],
+          "popular_majors": ["Law", "Medicine", "Engineering", "Economics", "Computer Science"],
+          "description": "The oldest and largest university in Serbia, ranked #1 nationally with 31 faculties and 11 research institutes.",
+          "verification_status": "VERIFIED",
+          "status": "ACTIVE",
+          "is_featured": true,
+          "client_id": "uniflow"
+        },
+        "courses": [
+          {
+            "id": "rs-ub-cs-bsc",
+            "name": "Bachelor of Science in Computer Science",
+            "course_code": "UB-BSc-CS",
+            "is_active": true,
+            "data": {
+              "degree_level": "BACHELORS",
+              "degree_type": "Bachelor of Science",
+              "field_of_study": "Computer Science",
+              "subject_area": "Engineering",
+              "academic_department": "Faculty of Electrical Engineering",
+              "duration_years": 4.0,
+              "study_mode": "FULL_TIME",
+              "tuition_international": 2500.00,
+              "currency": "EUR"
+            }
+          },
+          {
+            "id": "rs-ub-econ-ba",
+            "name": "Bachelor of Arts in Economics",
+            "course_code": "UB-BA-ECON",
+            "is_active": true,
+            "data": {
+              "degree_level": "BACHELORS",
+              "degree_type": "Bachelor of Arts",
+              "field_of_study": "Economics",
+              "subject_area": "Social Sciences",
+              "academic_department": "Faculty of Economics",
+              "duration_years": 4.0,
+              "study_mode": "FULL_TIME",
+              "tuition_international": 2200.00,
+              "currency": "EUR"
+            }
+          },
+          {
+            "id": "rs-ub-med-md",
+            "name": "Doctor of Medicine",
+            "course_code": "UB-MD",
+            "is_active": true,
+            "data": {
+              "degree_level": "DOCTORATE",
+              "degree_type": "Doctor of Medicine",
+              "field_of_study": "Medicine",
+              "subject_area": "Medical Sciences",
+              "academic_department": "Faculty of Medicine",
+              "duration_years": 6.0,
+              "study_mode": "FULL_TIME",
+              "tuition_international": 5000.00,
+              "currency": "EUR"
+            }
+          }
+        ]
+      },
+      {
+        "id": "rs-uns-001",
+        "name": "University of Novi Sad",
+        "code": "UNS",
+        "is_active": true,
+        "data": {
+          "official_name": "Univerzitet u Novom Sadu",
+          "short_name": "UNS",
+          "country": "Serbia",
+          "country_code": "RS",
+          "state": "Vojvodina",
+          "city": "Novi Sad",
+          "address": "Dr Zorana Djindjica 1, 21000 Novi Sad, Serbia",
+          "website_url": "https://www.uns.ac.rs",
+          "email": "info@uns.ac.rs",
+          "phone": "+381-21-4852000",
+          "institution_type": "PUBLIC",
+          "type": "COMPREHENSIVE",
+          "founding_year": 1960,
+          "total_students": 50000,
+          "undergraduate_students": 40000,
+          "graduate_students": 10000,
+          "faculty_count": 3100,
+          "world_ranking": 501,
+          "national_ranking": 2,
+          "qs_ranking": 550,
+          "tuition_international_undergraduate": 1800.00,
+          "tuition_international_graduate": 2500.00,
+          "application_fee": 25.00,
+          "currency": "EUR",
+          "scholarships_available": true,
+          "acceptance_rate": 0.40,
+          "application_deadline_fall": "2024-09-01",
+          "commission_rate": 10.0,
+          "english_requirements": { "TOEFL_min": 79, "IELTS_min": 6.0 },
+          "languages_of_instruction": ["Serbian", "English", "Hungarian"],
+          "schools_colleges": ["Faculty of Technical Sciences", "Faculty of Sciences", "Faculty of Medicine", "Academy of Arts"],
+          "degree_levels": ["Bachelor", "Master", "Doctorate"],
+          "popular_majors": ["Information Technology", "Mechanical Engineering", "Economics", "Pharmacy", "Law"],
+          "description": "The second largest university in Serbia, located in multicultural Novi Sad with 14 faculties.",
+          "verification_status": "VERIFIED",
+          "status": "ACTIVE",
+          "is_featured": true,
+          "client_id": "uniflow"
+        },
+        "courses": [
+          {
+            "id": "rs-uns-se-bsc",
+            "name": "Bachelor of Science in Software Engineering",
+            "course_code": "UNS-BSc-SE",
+            "is_active": true,
+            "data": {
+              "degree_level": "BACHELORS",
+              "degree_type": "Bachelor of Science",
+              "field_of_study": "Software Engineering",
+              "subject_area": "Engineering",
+              "academic_department": "Faculty of Technical Sciences",
+              "duration_years": 4.0,
+              "study_mode": "FULL_TIME",
+              "tuition_international": 2200.00,
+              "currency": "EUR"
+            }
+          },
+          {
+            "id": "rs-uns-ds-msc",
+            "name": "Master of Science in Data Science",
+            "course_code": "UNS-MSc-DS",
+            "is_active": true,
+            "data": {
+              "degree_level": "MASTERS",
+              "degree_type": "Master of Science",
+              "field_of_study": "Data Science",
+              "subject_area": "Engineering",
+              "academic_department": "Faculty of Sciences",
+              "duration_years": 2.0,
+              "study_mode": "FULL_TIME",
+              "tuition_international": 2800.00,
+              "currency": "EUR"
+            }
+          },
+          {
+            "id": "rs-uns-pharm-msc",
+            "name": "Master in Pharmacy",
+            "course_code": "UNS-MPharm",
+            "is_active": true,
+            "data": {
+              "degree_level": "MASTERS",
+              "degree_type": "Master of Pharmacy",
+              "field_of_study": "Pharmacy",
+              "subject_area": "Medical Sciences",
+              "academic_department": "Faculty of Medicine",
+              "duration_years": 5.0,
+              "study_mode": "FULL_TIME",
+              "tuition_international": 3500.00,
+              "currency": "EUR"
+            }
+          }
+        ]
+      },
+      {
+        "id": "rs-uni-001",
+        "name": "University of Nis",
+        "code": "UNI",
+        "is_active": true,
+        "data": {
+          "official_name": "Univerzitet u Nisu",
+          "short_name": "UNI",
+          "country": "Serbia",
+          "country_code": "RS",
+          "state": "Nisava District",
+          "city": "Nis",
+          "address": "Univerzitetski trg 2, 18000 Nis, Serbia",
+          "website_url": "https://www.ni.ac.rs",
+          "email": "info@ni.ac.rs",
+          "phone": "+381-18-257970",
+          "institution_type": "PUBLIC",
+          "type": "COMPREHENSIVE",
+          "founding_year": 1965,
+          "total_students": 25000,
+          "undergraduate_students": 20000,
+          "graduate_students": 5000,
+          "faculty_count": 1500,
+          "world_ranking": 801,
+          "national_ranking": 3,
+          "qs_ranking": 900,
+          "tuition_international_undergraduate": 1500.00,
+          "tuition_international_graduate": 2100.00,
+          "application_fee": 20.00,
+          "currency": "EUR",
+          "scholarships_available": true,
+          "acceptance_rate": 0.45,
+          "application_deadline_fall": "2024-09-01",
+          "commission_rate": 10.0,
+          "english_requirements": { "TOEFL_min": 75, "IELTS_min": 5.5 },
+          "languages_of_instruction": ["Serbian", "English"],
+          "schools_colleges": ["Faculty of Technology", "Faculty of Electronic Engineering", "Faculty of Medicine", "Faculty of Education", "Faculty of Economics"],
+          "degree_levels": ["Bachelor", "Master", "Doctorate"],
+          "popular_majors": ["Pharmaceutical Technology", "Environmental Engineering", "Food Technology", "Public Health", "Education"],
+          "description": "A major public university in southern Serbia with 13 faculties. Known for strong technology, engineering, medical, and education programs.",
+          "verification_status": "VERIFIED",
+          "status": "ACTIVE",
+          "is_featured": true,
+          "client_id": "uniflow"
+        },
+        "courses": [
+          {
+            "id": "rs-uni-pct-bsc",
+            "name": "Bachelor of Pharmaceutical and Cosmetic Technologies",
+            "course_code": "UNI-BSc-PCT",
+            "is_active": true,
+            "data": {
+              "official_name": "Pharmaceutical and Cosmetic Technologies",
+              "degree_level": "BACHELORS",
+              "degree_type": "Bachelor of Science",
+              "field_of_study": "Pharmaceutical Technology",
+              "subject_area": "Technology",
+              "academic_department": "Faculty of Technology",
+              "duration_years": 4.0,
+              "study_mode": "FULL_TIME",
+              "tuition_international": 1500.00,
+              "currency": "EUR",
+              "admission_requirements": {
+                "high_school_diploma": true,
+                "chemistry_entrance": true
+              }
+            }
+          },
+          {
+            "id": "rs-uni-mct-bsc",
+            "name": "Bachelor of Material and Chemical Technologies",
+            "course_code": "UNI-BSc-MCT",
+            "is_active": true,
+            "data": {
+              "official_name": "Material and Chemical Technologies",
+              "degree_level": "BACHELORS",
+              "degree_type": "Bachelor of Science",
+              "field_of_study": "Material and Chemical Technology",
+              "subject_area": "Technology",
+              "academic_department": "Faculty of Technology",
+              "duration_years": 4.0,
+              "study_mode": "FULL_TIME",
+              "tuition_international": 1500.00,
+              "currency": "EUR",
+              "admission_requirements": {
+                "high_school_diploma": true,
+                "chemistry_entrance": true
+              }
+            }
+          },
+          {
+            "id": "rs-uni-enve-bsc",
+            "name": "Bachelor of Environmental Engineering",
+            "course_code": "UNI-BSc-ENVE",
+            "is_active": true,
+            "data": {
+              "official_name": "Environmental Engineering",
+              "degree_level": "BACHELORS",
+              "degree_type": "Bachelor of Science",
+              "field_of_study": "Environmental Engineering",
+              "subject_area": "Engineering",
+              "academic_department": "Faculty of Technology",
+              "duration_years": 4.0,
+              "study_mode": "FULL_TIME",
+              "tuition_international": 1500.00,
+              "currency": "EUR",
+              "admission_requirements": {
+                "high_school_diploma": true,
+                "chemistry_entrance": true
+              }
+            }
+          },
+          {
+            "id": "rs-uni-ftfs-bsc",
+            "name": "Bachelor of Food Technology and Food Safety",
+            "course_code": "UNI-BSc-FTFS",
+            "is_active": true,
+            "data": {
+              "official_name": "Food Technology and Food Safety",
+              "degree_level": "BACHELORS",
+              "degree_type": "Bachelor of Science",
+              "field_of_study": "Food Technology",
+              "subject_area": "Technology",
+              "academic_department": "Faculty of Technology",
+              "duration_years": 4.0,
+              "study_mode": "FULL_TIME",
+              "tuition_international": 1500.00,
+              "currency": "EUR",
+              "admission_requirements": {
+                "high_school_diploma": true,
+                "biology_entrance": true
+              }
+            }
+          },
+          {
+            "id": "rs-uni-itcd-bsc",
+            "name": "Bachelor of Industrial Textile and Clothing Design",
+            "course_code": "UNI-BSc-ITCD",
+            "is_active": true,
+            "data": {
+              "official_name": "Industrial Textile and Clothing Design",
+              "degree_level": "BACHELORS",
+              "degree_type": "Bachelor of Science",
+              "field_of_study": "Textile Design",
+              "subject_area": "Design and Technology",
+              "academic_department": "Faculty of Technology",
+              "duration_years": 4.0,
+              "study_mode": "FULL_TIME",
+              "tuition_international": 1500.00,
+              "currency": "EUR"
+            }
+          },
+          {
+            "id": "rs-uni-istp-bsc",
+            "name": "Bachelor of Information Systems in Technological Processes",
+            "course_code": "UNI-BSc-ISTP",
+            "is_active": true,
+            "data": {
+              "official_name": "Information Systems in Technological Processes",
+              "degree_level": "BACHELORS",
+              "degree_type": "Bachelor of Science",
+              "field_of_study": "Information Systems",
+              "subject_area": "Technology",
+              "academic_department": "Faculty of Technology",
+              "duration_years": 4.0,
+              "study_mode": "FULL_TIME",
+              "tuition_international": 1500.00,
+              "currency": "EUR",
+              "admission_requirements": {
+                "high_school_diploma": true,
+                "mathematics_entrance": true
+              }
+            }
+          },
+          {
+            "id": "rs-uni-pct-msc",
+            "name": "Master of Pharmaceutical and Cosmetic Technologies",
+            "course_code": "UNI-MSc-PCT",
+            "is_active": true,
+            "data": {
+              "official_name": "Master in Pharmaceutical and Cosmetic Technologies",
+              "degree_level": "MASTERS",
+              "degree_type": "Master of Science",
+              "field_of_study": "Pharmaceutical Technology",
+              "subject_area": "Technology",
+              "academic_department": "Faculty of Technology",
+              "duration_years": 1.0,
+              "study_mode": "FULL_TIME",
+              "tuition_international": 2100.00,
+              "currency": "EUR",
+              "admission_requirements": {
+                "bachelor_required": true,
+                "chemistry_background": true
+              }
+            }
+          },
+          {
+            "id": "rs-uni-mct-msc",
+            "name": "Master of Material and Chemical Technologies",
+            "course_code": "UNI-MSc-MCT",
+            "is_active": true,
+            "data": {
+              "official_name": "Master in Material and Chemical Technologies",
+              "degree_level": "MASTERS",
+              "degree_type": "Master of Science",
+              "field_of_study": "Material and Chemical Technology",
+              "subject_area": "Technology",
+              "academic_department": "Faculty of Technology",
+              "duration_years": 1.0,
+              "study_mode": "FULL_TIME",
+              "tuition_international": 2100.00,
+              "currency": "EUR",
+              "admission_requirements": {
+                "bachelor_required": true,
+                "chemistry_background": true
+              }
+            }
+          },
+          {
+            "id": "rs-uni-enve-msc",
+            "name": "Master of Environmental Engineering",
+            "course_code": "UNI-MSc-ENVE",
+            "is_active": true,
+            "data": {
+              "official_name": "Master in Environmental Engineering",
+              "degree_level": "MASTERS",
+              "degree_type": "Master of Science",
+              "field_of_study": "Environmental Engineering",
+              "subject_area": "Engineering",
+              "academic_department": "Faculty of Technology",
+              "duration_years": 1.0,
+              "study_mode": "FULL_TIME",
+              "tuition_international": 2100.00,
+              "currency": "EUR",
+              "admission_requirements": {
+                "bachelor_required": true,
+                "environmental_background": true
+              }
+            }
+          },
+          {
+            "id": "rs-uni-ftfs-msc",
+            "name": "Master of Food Technology and Food Safety",
+            "course_code": "UNI-MSc-FTFS",
+            "is_active": true,
+            "data": {
+              "official_name": "Master in Food Technology and Food Safety",
+              "degree_level": "MASTERS",
+              "degree_type": "Master of Science",
+              "field_of_study": "Food Technology",
+              "subject_area": "Technology",
+              "academic_department": "Faculty of Technology",
+              "duration_years": 1.0,
+              "study_mode": "FULL_TIME",
+              "tuition_international": 2100.00,
+              "currency": "EUR",
+              "admission_requirements": {
+                "bachelor_required": true,
+                "biology_background": true
+              }
+            }
+          },
+          {
+            "id": "rs-uni-itcd-msc",
+            "name": "Master of Industrial Textile and Clothing Design",
+            "course_code": "UNI-MSc-ITCD",
+            "is_active": true,
+            "data": {
+              "official_name": "Master in Industrial Textile and Clothing Design",
+              "degree_level": "MASTERS",
+              "degree_type": "Master of Science",
+              "field_of_study": "Textile Design",
+              "subject_area": "Design and Technology",
+              "academic_department": "Faculty of Technology",
+              "duration_years": 1.0,
+              "study_mode": "FULL_TIME",
+              "tuition_international": 2100.00,
+              "currency": "EUR"
+            }
+          },
+          {
+            "id": "rs-uni-istp-msc",
+            "name": "Master of Information Systems in Technological Processes",
+            "course_code": "UNI-MSc-ISTP",
+            "is_active": true,
+            "data": {
+              "official_name": "Master in Information Systems in Technological Processes",
+              "degree_level": "MASTERS",
+              "degree_type": "Master of Science",
+              "field_of_study": "Information Systems",
+              "subject_area": "Technology",
+              "academic_department": "Faculty of Technology",
+              "duration_years": 1.0,
+              "study_mode": "FULL_TIME",
+              "tuition_international": 2100.00,
+              "currency": "EUR",
+              "admission_requirements": {
+                "bachelor_required": true,
+                "it_background": true
+              }
+            }
+          },
+          {
+            "id": "rs-uni-edu-itt",
+            "name": "Master of International Teacher Training (Pedagogy)",
+            "course_code": "UNI-MSc-ITT",
+            "is_active": true,
+            "data": {
+              "official_name": "International Teacher Training - Pedagogy (European Curriculum)",
+              "degree_level": "MASTERS",
+              "degree_type": "Master of Education",
+              "field_of_study": "Education",
+              "subject_area": "Education",
+              "academic_department": "Faculty of Education",
+              "duration_years": 1.0,
+              "study_mode": "FULL_TIME",
+              "tuition_international": 3000.00,
+              "currency": "EUR",
+              "language_of_instruction": "English",
+              "admission_requirements": {
+                "bachelor_required": true,
+                "english_proficiency": "B2"
+              },
+              "description": "Taught in English. Ideal for aspiring global educators following the European Curriculum."
+            }
+          },
+          {
+            "id": "rs-uni-mph-hc",
+            "name": "Master Vocational Studies in Healthcare",
+            "course_code": "UNI-MSc-MPH-HC",
+            "is_active": true,
+            "data": {
+              "official_name": "Master Vocational Studies in Healthcare",
+              "degree_level": "MASTERS",
+              "degree_type": "Master of Public Health",
+              "field_of_study": "Healthcare",
+              "subject_area": "Medical Sciences",
+              "academic_department": "Faculty of Medicine",
+              "duration_years": 1.0,
+              "study_mode": "FULL_TIME",
+              "tuition_international": 2900.00,
+              "currency": "EUR",
+              "first_deposit": 250.00,
+              "admission_requirements": {
+                "bachelor_required": true,
+                "healthcare_background": true
+              }
+            }
+          },
+          {
+            "id": "rs-uni-mph-pt",
+            "name": "Master Vocational Studies in Physiotherapy",
+            "course_code": "UNI-MSc-MPH-PT",
+            "is_active": true,
+            "data": {
+              "official_name": "Master Vocational Studies in Physiotherapy",
+              "degree_level": "MASTERS",
+              "degree_type": "Master of Public Health",
+              "field_of_study": "Physiotherapy",
+              "subject_area": "Medical Sciences",
+              "academic_department": "Faculty of Medicine",
+              "duration_years": 2.0,
+              "study_mode": "FULL_TIME",
+              "tuition_international": 2500.00,
+              "currency": "EUR",
+              "first_deposit": 250.00,
+              "admission_requirements": {
+                "bachelor_required": true,
+                "physiotherapy_background": true
+              }
+            }
+          },
+          {
+            "id": "rs-uni-mph-mr",
+            "name": "Master Vocational Studies in Medical Radiology",
+            "course_code": "UNI-MSc-MPH-MR",
+            "is_active": true,
+            "data": {
+              "official_name": "Master Vocational Studies in Medical Radiology",
+              "degree_level": "MASTERS",
+              "degree_type": "Master of Public Health",
+              "field_of_study": "Medical Radiology",
+              "subject_area": "Medical Sciences",
+              "academic_department": "Faculty of Medicine",
+              "duration_years": 2.0,
+              "study_mode": "FULL_TIME",
+              "tuition_international": 2500.00,
+              "currency": "EUR",
+              "first_deposit": 250.00,
+              "admission_requirements": {
+                "bachelor_required": true,
+                "radiology_background": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "page": 0,
+    "size": 50,
+    "hasMore": false
+  }
+}
