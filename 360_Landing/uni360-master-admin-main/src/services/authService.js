@@ -1,11 +1,3 @@
-import axios from 'axios';
-
-const authApi = axios.create({
-  baseURL: '',
-  timeout: 10000,
-  headers: { 'Content-Type': 'application/json', 'X-Client-ID': 'uniflow' }
-});
-
 export const login = async (usernameOrEmail, password) => {
   const userData = {
     id: 1,

@@ -1,23 +1,30 @@
-import axios from "axios";
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const api = axios.create({
-  baseURL: "",
-  timeout: 30000,
-  headers: { "Content-Type": "application/json", "X-Client-ID": "uniflow" },
-});
-
-api.interceptors.request.use(
-  (config) => {
-    config.headers.Authorization = "Bearer mock-master-admin-token";
-    return config;
+const api = {
+  defaults: { headers: {} },
+  interceptors: { request: { use: () => {} }, response: { use: () => {} } },
+  get: async (url, config) => {
+    await delay(200);
+    if (url.includes("/contacts")) return { data: { success: true, data: [] } };
+    return { data: { success: true, data: {} } };
   },
-  (error) => Promise.reject(error)
-);
-
-api.interceptors.response.use(
-  (response) => response,
-  async (error) => Promise.reject(error)
-);
+  post: async (url, data, config) => {
+    await delay(200);
+    return { data: { success: true, data: { id: Math.floor(Math.random() * 1000), ...data } } };
+  },
+  put: async (url, data) => {
+    await delay(200);
+    return { data: { success: true } };
+  },
+  patch: async (url, data) => {
+    await delay(200);
+    return { data: { success: true } };
+  },
+  delete: async (url) => {
+    await delay(200);
+    return { data: { success: true } };
+  },
+};
 
 export const hasValidToken = () => true;
 
