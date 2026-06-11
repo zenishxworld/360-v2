@@ -22,4 +22,12 @@ export const updateCommissionStatus = async (id, status) => {
   return { success: true };
 };
 
-export default { getCommissions, createCommission, updateCommissionStatus };
+export const getEarnedCommissions = async (adminId) => ({ success: true, data: { total: 1250, currency: "EUR", commissions: [] } });
+export const getCommissionStats = async () => ({ success: true, data: { totalPending: 500, totalPaid: 750, totalCommissions: 1250, averageCommissionRate: 8.5 } });
+export const getAllUniversityCommissionRates = async () => ({ success: true, data: [{ universityId: 1, universityName: "TU Munich", rate: 10 }, { universityId: 2, universityName: "Cambridge", rate: 8 }] });
+export const setUniversityCommissionRate = async (universityId, rate) => {
+  await delay(200);
+  return { success: true };
+};
+
+export default { getCommissions, createCommission, updateCommissionStatus, getEarnedCommissions, getCommissionStats, getAllUniversityCommissionRates, setUniversityCommissionRate };

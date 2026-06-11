@@ -7,3 +7,4 @@ export const logout = () => {};
 export const refreshToken = async () => ({ success: true, data: { token: "mock-token" } });
 export const validateToken = () => true;
 export const getCurrentUser = () => ({ name: "Admin User", email: "admin@uni360.com" });
+export const apiRequest = async (endpoint, options) => ({ success: true, data: {} });

@@ -24,4 +24,8 @@ export const updatePaymentStatus = async (paymentId, status) => {
   return { success: true };
 };
 
-export default { getPayments, createPayment, updatePaymentStatus };
+export const fetchAssignedStudentPayments = async (studentId) => getPayments({ studentId });
+
+export type Payment = { id: number; studentName: string; type: string; amount: number; currency: string; status: string; date: string };
+
+export default { getPayments, createPayment, updatePaymentStatus, fetchAssignedStudentPayments };

@@ -25,4 +25,14 @@ export const createQuery = async (data) => {
   return { success: true, data: { id: Math.floor(Math.random() * 1000), ...data } };
 };
 
-export default { getQueries, getQueryById, updateQueryStatus, createQuery };
+export const replyToQuery = async (id, message) => {
+  await delay(200);
+  return { success: true, data: { id: Math.floor(Math.random() * 1000), queryId: id, message, createdAt: new Date().toISOString() } };
+};
+
+export const closeQuery = async (id) => {
+  await delay(200);
+  return { success: true };
+};
+
+export default { getQueries, getQueryById, updateQueryStatus, createQuery, replyToQuery, closeQuery };

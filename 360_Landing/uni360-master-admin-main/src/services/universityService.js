@@ -54,4 +54,16 @@ export const deleteCourse = async (id) => {
   return { success: true };
 };
 
-export default { getUniversities, getUniversityById, createUniversity, updateUniversity, deleteUniversity, getCourses, createCourse, updateCourse, deleteCourse };
+export const universityAPI = {
+  getAll: getUniversities,
+  getById: getUniversityById,
+  create: createUniversity,
+  update: updateUniversity,
+  delete: deleteUniversity,
+  getCourses,
+  createCourse,
+  updateCourse,
+  deleteCourse,
+};
+
+export default { getUniversities, getUniversityById, createUniversity, updateUniversity, deleteUniversity, getCourses, createCourse, updateCourse, deleteCourse, universityAPI };

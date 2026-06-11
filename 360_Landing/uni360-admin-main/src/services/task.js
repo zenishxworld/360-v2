@@ -15,4 +15,17 @@ export const updateTask = async (taskId, updates) => {
   return { success: true };
 };
 
-export default { getTasks, createTask, updateTask };
+export const getAllTasks = async (params) => getTasks(params);
+export const getTaskDetails = async (id) => ({ success: true, data: { id: Number(id), title: "Review Application", status: "PENDING", priority: "HIGH", createdAt: new Date().toISOString() } });
+export const claimTask = async (id) => ({ success: true });
+export const getWorkflowProgress = async (appId) => ({ success: true, data: { currentStage: "DOCUMENT_COLLECTION", completedStages: ["INTAKE"], pendingStages: ["VISA", "ENROLLMENT"] } });
+export const completeTask = async (id, data) => ({ success: true });
+export const getApplication = async (id) => ({ success: true, data: { id: Number(id), studentName: "John Doe", status: "UNDER_REVIEW" } });
+export const getCourse = async (id) => ({ success: true, data: { id: Number(id), name: "M.Sc. Computer Science", university: "TU Munich" } });
+export const getUniversity = async (id) => ({ success: true, data: { id: Number(id), name: "Technical University of Munich", country: "Germany" } });
+export const getTaskRequirements = async (taskId) => ({ success: true, data: { taskId: Number(taskId), requiredDocuments: ["Transcript", "Passport"], requiredActions: ["Verify Documents"] } });
+export const setApplicationFlags = async (appId, flags) => ({ success: true });
+export const getStudentProfileForAdmin = async (id) => ({ success: true, data: { id: Number(id), firstName: "Jane", lastName: "Student", email: "jane@example.com", nationality: "Indian" } });
+export const clearDashboardCache = () => {};
+
+export default { getTasks, createTask, updateTask, getAllTasks, getTaskDetails, claimTask, getWorkflowProgress, completeTask, getApplication, getCourse, getUniversity, getTaskRequirements, setApplicationFlags, getStudentProfileForAdmin, clearDashboardCache };

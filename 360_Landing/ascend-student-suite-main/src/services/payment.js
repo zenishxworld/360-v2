@@ -10,9 +10,14 @@ export const verifyPayment = async (paymentData) => {
   return { success: true, data: { status: "CAPTURED" } };
 };
 
+export const verifyRazorpayPayment = async (paymentData) => verifyPayment(paymentData);
+
 export const healthCheck = async () => {
   await delay(200);
   return { success: true, status: "UP" };
 };
 
-export default { createOrder, verifyPayment, healthCheck };
+export const checkPaymentHealth = healthCheck;
+export const getPaymentHistory = async (params) => ({ success: true, data: [{ id: 1, amount: 75, currency: "EUR", status: "PAID", date: "2025-03-10", description: "Application Fee" }] });
+
+export default { createOrder, verifyPayment, healthCheck, checkPaymentHealth, getPaymentHistory };

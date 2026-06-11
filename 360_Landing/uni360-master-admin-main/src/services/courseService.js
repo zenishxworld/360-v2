@@ -30,4 +30,12 @@ export const deleteCourse = async (id) => {
   return { success: true };
 };
 
-export default { getCourses, getCourseById, createCourse, updateCourse, deleteCourse };
+export const courseAPI = {
+  getAll: getCourses,
+  getById: getCourseById,
+  create: createCourse,
+  update: updateCourse,
+  delete: deleteCourse,
+};
+
+export default { getCourses, getCourseById, createCourse, updateCourse, deleteCourse, courseAPI };

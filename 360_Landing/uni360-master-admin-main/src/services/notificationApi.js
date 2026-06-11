@@ -29,4 +29,12 @@ export const createNotification = async (data) => {
   return { success: true, data: { id: Math.floor(Math.random() * 1000), ...data } };
 };
 
-export default { getNotifications, getUnreadCount, markAsRead, markAllAsRead, createNotification };
+export const getNotificationOverview = async () => ({ success: true, data: { total: notifications.length, unread: notifications.filter((n) => !n.read).length } });
+export const broadcastNotification = async (data) => {
+  await delay(300);
+  return { success: true, data: { id: Math.floor(Math.random() * 1000), ...data } };
+};
+export const getNotificationAnalytics = async () => ({ success: true, data: { sentThisMonth: 45, readRate: 0.68 } });
+export const getNotificationTemplates = async () => ({ success: true, data: [{ id: 1, name: "Welcome", subject: "Welcome to Uni360" }, { id: 2, name: "Reminder", subject: "Application Reminder" }] });
+
+export default { getNotifications, getUnreadCount, markAsRead, markAllAsRead, createNotification, getNotificationOverview, broadcastNotification, getNotificationAnalytics, getNotificationTemplates };

@@ -26,4 +26,15 @@ export const getMeetingUrl = async () => {
   return { success: true, data: { url: "#" } };
 };
 
-export default { getVisaChecklists, getVisaAppointments, getMeetingUrl };
+export const getAllVisaAppointments = async () => getVisaAppointments();
+export const createVisaAppointment = async (payload) => ({ success: true, data: { id: Math.floor(Math.random() * 1000), ...payload, status: "SCHEDULED" } });
+export const updateAppointmentStatus = async (id, status) => ({ success: true });
+export const getStudentVisaAppointments = async (studentId) => ({ success: true, data: [] });
+export const getMeetingUrls = async () => ({ success: true, data: [] });
+export const saveMeetingUrl = async (data) => ({ success: true });
+
+export type VisaAppointment = { id: number; studentName: string; type: string; date: string; location: string; status: string };
+export type AppointmentStatus = "SCHEDULED" | "COMPLETED" | "CANCELLED";
+export type CreateAppointmentPayload = { studentName: string; type: string; date: string; location: string };
+
+export default { getVisaChecklists, getVisaAppointments, getMeetingUrl, getAllVisaAppointments, createVisaAppointment, updateAppointmentStatus, getStudentVisaAppointments, getMeetingUrls, saveMeetingUrl };

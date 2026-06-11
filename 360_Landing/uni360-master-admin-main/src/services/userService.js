@@ -34,4 +34,7 @@ export const createUser = async (data) => {
   return { success: true, data: { id: Math.floor(Math.random() * 1000), ...data } };
 };
 
-export default { getUsers, getUserById, updateUser, deleteUser, createUser };
+export const getAllUsers = async (params) => getUsers(params);
+export const getStudentProfile = async (id) => getUserById(id);
+
+export default { getUsers, getUserById, updateUser, deleteUser, createUser, getAllUsers, getStudentProfile };

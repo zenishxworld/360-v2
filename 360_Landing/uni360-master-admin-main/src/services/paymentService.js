@@ -28,4 +28,6 @@ export const updatePaymentStatus = async (id, status) => {
   return { success: true };
 };
 
-export default { getPayments, getPaymentById, createPayment, updatePaymentStatus };
+export const getAllSystemPayments = async (params) => getPayments(params);
+
+export default { getPayments, getPaymentById, createPayment, updatePaymentStatus, getAllSystemPayments };

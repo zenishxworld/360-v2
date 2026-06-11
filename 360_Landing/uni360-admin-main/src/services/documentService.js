@@ -27,4 +27,16 @@ export const deleteDocument = async (id) => {
   return { success: true };
 };
 
-export default { getDocuments, uploadDocument, deleteDocument };
+export const getDocumentViewUrl = async (docId) => ({ success: true, url: "#" });
+export const getStudentsList = async () => ({ success: true, data: [{ id: 1, name: "John Doe", email: "john@example.com" }, { id: 2, name: "Jane Smith", email: "jane@example.com" }] });
+export const getMyDocuments = async () => getDocuments();
+export const downloadDocument = async (docId) => ({ success: true, url: "#" });
+export const getPendingDocuments = async () => ({ success: true, data: documents.filter((d) => d.status === "PENDING") });
+export const getReviewedDocuments = async () => ({ success: true, data: documents.filter((d) => d.status === "REVIEWED" || d.status === "APPROVED") });
+export const getStudentDocuments = async (studentId) => ({ success: true, data: documents.filter((d) => d.studentId === Number(studentId)) });
+export const updateDocumentStatus = async (docId, status) => {
+  await delay(200);
+  return { success: true };
+};
+
+export default { getDocuments, uploadDocument, deleteDocument, getDocumentViewUrl, getStudentsList, getMyDocuments, downloadDocument, getPendingDocuments, getReviewedDocuments, getStudentDocuments, updateDocumentStatus };

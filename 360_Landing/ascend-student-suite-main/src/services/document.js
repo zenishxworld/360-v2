@@ -28,4 +28,6 @@ export const downloadDocument = async (documentId) => {
   return { success: true, url: "#" };
 };
 
-export default { getDocuments, uploadDocument, deleteDocument, downloadDocument };
+export const downloadDocumentById = async (id) => ({ success: true, url: "#" });
+
+export default { getDocuments, uploadDocument, deleteDocument, downloadDocument, downloadDocumentById };

@@ -51,4 +51,10 @@ export const getDashboardCharts = async () => {
   };
 };
 
-export default { getDashboardStats, getDashboardCharts };
+export const fetchDashboardData = async () => getDashboardStats();
+export const fetchDashboardChartData = async () => getDashboardCharts();
+
+export const fetchUsersAnalytics = async () => ({ success: true, data: { total: 156, active: 120, newThisMonth: 12 } });
+export const fetchApplicationsAnalytics = async () => ({ success: true, data: { total: 48, pending: 8, approved: 25, rejected: 5, draft: 10 } });
+
+export default { getDashboardStats, getDashboardCharts, fetchDashboardData, fetchDashboardChartData, fetchUsersAnalytics, fetchApplicationsAnalytics };

@@ -19,4 +19,8 @@ export const serbiaLeadAPI = {
   },
 };
 
+export const serbiaLeadsAPI = serbiaLeadAPI;
+
+export type SerbiaLeadResponse = { id: number; firstName: string; lastName: string; email: string; phone: string; status: string };
+
 export default serbiaLeadAPI;

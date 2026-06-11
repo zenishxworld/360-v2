@@ -33,4 +33,16 @@ export const deleteApplication = async (id) => {
   return { success: true };
 };
 
-export default { getApplications, getApplicationById, updateApplication, deleteApplication };
+export const fetchApplications = async (params) => getApplications(params);
+export const fetchApplicationById = async (id) => getApplicationById(id);
+
+export const fetchApplicationAnalytics = async () => ({ success: true, data: { total: 48, byStatus: { DRAFT: 5, CLAIM_PENDING: 8, UNDER_REVIEW: 20, COMPLETED: 15 }, byCountry: { Germany: 30, UK: 18 } } });
+export const mapApplicationStatus = (status) => status || "DRAFT";
+export const mapWorkflowStage = (stage) => stage || "DOCUMENT_COLLECTION";
+export const getStatusColor = (status) => {
+  const map = { DRAFT: "gray", CLAIM_PENDING: "yellow", UNDER_REVIEW: "blue", COMPLETED: "green", REJECTED: "red" };
+  return map[status] || "gray";
+};
+export const getStudentProfileForSuperAdmin = async (id) => ({ success: true, data: { id: Number(id), firstName: "John", lastName: "Doe", email: "john@example.com" } });
+
+export default { getApplications, getApplicationById, updateApplication, deleteApplication, fetchApplications, fetchApplicationById, fetchApplicationAnalytics, mapApplicationStatus, mapWorkflowStage, getStatusColor, getStudentProfileForSuperAdmin };

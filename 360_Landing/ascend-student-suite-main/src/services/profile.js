@@ -27,4 +27,7 @@ export const uploadProfilePhoto = async (file) => {
 
 export const clearAllProfileDrafts = () => {};
 
-export default { getUserProfile, saveProfileDraft, uploadProfilePhoto, clearAllProfileDrafts };
+export const getProfileCompletion = async () => ({ success: true, data: { percentage: 65, completedSteps: ["personal", "education"], remainingSteps: ["documents", "visa"] } });
+export const deleteProfilePhoto = async () => ({ success: true });
+
+export default { getUserProfile, saveProfileDraft, uploadProfilePhoto, clearAllProfileDrafts, getProfileCompletion, deleteProfilePhoto };
