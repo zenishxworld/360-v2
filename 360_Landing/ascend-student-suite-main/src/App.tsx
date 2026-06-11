@@ -27,6 +27,8 @@ import Preferences from "./pages/Preferences";
 import Discover from "./pages/Discover";
 import Recommendations from "./pages/Recommendations";
 import Saved from "./pages/Saved";
+import AIProfileEvaluation from "./pages/AIProfileEvaluation";
+import AIProfileEvaluationResults from "./pages/AIProfileEvaluationResults";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -56,6 +58,10 @@ const App = () => {
             <Route path="/refund" element={<RefundPolicy />} />
             <Route path="/cancellation" element={<CancellationPolicy />} />
             <Route path="/pricing" element={<Pricing />} />
+            
+            <Route path="/ai-profile-evaluation" element={<AIProfileEvaluation />} />
+            <Route path="/ai-profile-evaluation/results" element={<AIProfileEvaluationResults />} />
+
             <Route path="/" element={<AppLayout />}>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/preferences" element={<Preferences />} />

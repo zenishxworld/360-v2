@@ -1,0 +1,851 @@
+Below is the kind of prompt I would give to an AI coding agent (Integrity AI, Cursor, Claude Code, Lovable, Bolt, etc.) to recreate and improve the Aspiria AI Profile Evaluation flow inside your Unix 360 platform.
+
+---
+
+# MASTER PROMPT — UNIX 360 AI PROFILE EVALUATION
+
+Build a premium multi-step AI Profile Evaluation experience for the Unix 360 platform.
+
+The experience should be visually inspired by Aspiria AI's evaluation wizard and match approximately 95-99% of its flow, layout structure, simplicity, and conversion-focused UX while using Unix 360 branding.
+
+This is not a basic form.
+
+This should feel like an intelligent AI counselor guiding students through a study-abroad profile assessment.
+
+---
+
+# PAGE ROUTE
+
+```txt
+/ai-profile-evaluation
+```
+
+---
+
+# OBJECTIVE
+
+Collect student profile data through a conversational wizard and generate personalized course recommendations.
+
+The experience should feel:
+
+* AI-guided
+* Modern
+* Friendly
+* Premium
+* Fast
+* Trustworthy
+* Mobile-first
+* Conversion optimized
+
+The form should never feel overwhelming.
+
+Only one step should be visible at a time.
+
+---
+
+# OVERALL LAYOUT
+
+Create a fullscreen wizard layout.
+
+Structure:
+
+```txt
+------------------------------------------------
+Progress Bar
+------------------------------------------------
+
+← Back Button
+
+Left Side:
+AI Mascot
+Speech Bubble
+
+Right Side:
+Step Number
+Question Title
+Answer Options
+
+------------------------------------------------
+Sticky Footer
+Continue Button
+------------------------------------------------
+```
+
+---
+
+# DESIGN SYSTEM
+
+Background:
+
+```css
+#F6F6F8
+```
+
+Primary Purple:
+
+```css
+#8B6AE8
+```
+
+Light Purple:
+
+```css
+#F4EEFF
+```
+
+Dark Text:
+
+```css
+#111827
+```
+
+Border:
+
+```css
+#E5E7EB
+```
+
+Card Shadow:
+
+```css
+0 10px 30px rgba(0,0,0,0.05)
+```
+
+Radius:
+
+```css
+20px
+```
+
+---
+
+# PROGRESS BAR
+
+Top of screen.
+
+Height:
+
+```css
+4px
+```
+
+Purple animated fill.
+
+Progress updates:
+
+```txt
+Step 1 = 12%
+Step 2 = 25%
+Step 3 = 37%
+Step 4 = 50%
+Step 5 = 62%
+Step 6 = 75%
+Step 7 = 87%
+Step 8 = 100%
+```
+
+Animate smoothly.
+
+---
+
+# AI GUIDE PANEL
+
+Left side desktop.
+
+Top:
+
+AI Owl Mascot
+
+Under mascot:
+
+Speech bubble card.
+
+Bubble style:
+
+```css
+background: #FFF7EB;
+border: 1px solid #F3C87A;
+```
+
+Rounded.
+
+Speech pointer triangle.
+
+Different message for each step.
+
+Example:
+
+Step 1:
+
+```txt
+Choose your destination country.
+```
+
+Step 2:
+
+```txt
+Select your desired degree level.
+```
+
+Step 3:
+
+```txt
+Choose your field of interest.
+```
+
+Step 4:
+
+```txt
+Tell us about your academic background.
+```
+
+etc.
+
+---
+
+# STEP 1
+
+Title:
+
+```txt
+Where do you aspire to study?
+```
+
+Country cards grid.
+
+Options:
+
+```txt
+France
+Ireland
+United Kingdom
+Denmark
+Malta
+Germany
+Poland
+Latvia
+Italy
+Greece
+Spain
+Estonia
+Netherlands
+Hungary
+Lithuania
+Switzerland
+Sweden
+Finland
+Cyprus
+Singapore
+Dubai
+Canada
+Australia
+USA
+New Zealand
+```
+
+Each card:
+
+```txt
+Flag
+Country Name
+```
+
+Card style:
+
+```css
+height:60px
+border-radius:14px
+```
+
+Selected card:
+
+```css
+border:2px solid #8B6AE8
+background:#F4EEFF
+```
+
+Search input:
+
+```txt
+Looking for another country? Type it here
+```
+
+Multi-select allowed.
+
+---
+
+# STEP 2
+
+Title:
+
+```txt
+What level of education do you want to pursue?
+```
+
+Options:
+
+```txt
+Undergraduate (Bachelor's Degree)
+Postgraduate (Master's Degree)
+Doctorate (PhD)
+Diploma / Certificate Programs
+MBA
+Executive Education
+```
+
+Display as large selection cards.
+
+Only one selection.
+
+---
+
+# STEP 3
+
+Title:
+
+```txt
+Specify Your Field of Interest
+```
+
+Options:
+
+```txt
+Business & Management
+IT & Computer Science
+Accounting & Finance
+Arts & Humanities
+Nursing
+Pharma & Healthcare
+Education
+Engineering & Technology
+Food Sciences
+Law
+Sports
+Tourism & Hospitality
+Logistics & Supply Chain
+Fashion & Design
+Media & Journalism
+Music
+Psychology
+Science
+Architecture
+Artificial Intelligence
+Data Science
+Cyber Security
+Digital Marketing
+```
+
+Search field at bottom.
+
+Multi-select supported.
+
+---
+
+# STEP 4
+
+Title:
+
+```txt
+What's Your Education Level So Far?
+```
+
+Fields:
+
+Highest Qualification
+
+Dropdown:
+
+```txt
+High School
+Diploma
+Bachelor's Degree
+Master's Degree
+Doctorate
+```
+
+Passing Year
+
+Dropdown:
+
+```txt
+2010-2035
+```
+
+Score
+
+Input.
+
+Score Type:
+
+```txt
+CGPA
+Percentage
+GPA
+```
+
+English Proficiency Test?
+
+Radio:
+
+```txt
+Yes
+No
+```
+
+If YES:
+
+Show:
+
+```txt
+IELTS
+TOEFL
+PTE
+Duolingo
+```
+
+Score input.
+
+---
+
+# STEP 5
+
+Title:
+
+```txt
+What's your estimated budget for studying abroad? (per year)
+```
+
+Interactive slider.
+
+Range:
+
+```txt
+₹5 Lakh
+₹10 Lakh
+₹15 Lakh
+₹20 Lakh
+₹25 Lakh
+₹30 Lakh
+₹35 Lakh
+₹40 Lakh+
+```
+
+Show floating tooltip.
+
+Show budget summary card below.
+
+Example:
+
+```txt
+Budget Up To
+
+₹20 Lakh
+```
+
+---
+
+# STEP 6
+
+Title:
+
+```txt
+When do you plan to commence your studies?
+```
+
+Options:
+
+```txt
+January Intake
+May Intake
+September Intake
+Not Yet Decided
+```
+
+Card selection style.
+
+---
+
+# STEP 7
+
+Title:
+
+```txt
+Let's get your contact details
+```
+
+Fields:
+
+Name
+
+Email
+
+Country Code
+
+WhatsApp Number
+
+Validation:
+
+```txt
+Required
+Email format validation
+Phone validation
+```
+
+Real-time validation.
+
+---
+
+# STEP 8
+
+OTP VERIFICATION
+
+Heading:
+
+```txt
+Almost there!
+Enter the OTP sent to your number.
+```
+
+6 digit OTP boxes.
+
+Features:
+
+* Auto focus
+* Auto move next
+* Backspace support
+* Paste support
+
+Timer:
+
+```txt
+Resend OTP in 60 sec
+```
+
+Resend button.
+
+---
+
+# LOADING SCREEN
+
+After successful verification.
+
+Full screen.
+
+AI mascot animated.
+
+Text:
+
+```txt
+Analyzing your profile...
+```
+
+Show rotating insights:
+
+```txt
+Matching universities...
+Finding scholarships...
+Comparing programs...
+Evaluating eligibility...
+```
+
+Duration:
+
+3-5 seconds.
+
+---
+
+# AI RECOMMENDATION PAGE
+
+Route:
+
+```txt
+/ai-profile-evaluation/results
+```
+
+Hero:
+
+```txt
+Discover the Right Courses for You
+```
+
+Subtitle:
+
+```txt
+Based on your profile, here are the most suitable programs.
+```
+
+---
+
+# FILTER SECTION
+
+Large floating card.
+
+Filters:
+
+Country
+
+University
+
+Course Type
+
+Tuition Range
+
+Intake
+
+Duration
+
+Study Mode
+
+Button:
+
+```txt
+Apply Filters
+```
+
+---
+
+# COURSE CARDS
+
+Grid:
+
+Desktop:
+
+```txt
+2 columns
+```
+
+Mobile:
+
+```txt
+1 column
+```
+
+Card content:
+
+University Logo
+
+Course Name
+
+University Name
+
+Country
+
+City
+
+Tuition Fee
+
+Application Fee
+
+Duration
+
+Next Intake
+
+Match Percentage
+
+Example:
+
+```txt
+95% Match
+```
+
+Badge colors:
+
+```txt
+90-100 Green
+75-89 Purple
+60-74 Orange
+```
+
+---
+
+# AI MATCH SCORE
+
+Top-right of card.
+
+Show:
+
+```txt
+AI Match Score
+```
+
+Example:
+
+```txt
+92%
+```
+
+Tooltip:
+
+```txt
+Based on budget, academic profile, country preference and intake.
+```
+
+---
+
+# COURSE DETAIL MODAL
+
+Click course.
+
+Open modal.
+
+Contains:
+
+Overview
+
+Eligibility
+
+Fees
+
+Scholarships
+
+Career Outcomes
+
+Visa Opportunities
+
+University Ranking
+
+Why AI Recommended This Course
+
+---
+
+# ASK AI ASSISTANT
+
+Floating button.
+
+Bottom right.
+
+Label:
+
+```txt
+Ask Unix AI
+```
+
+Opens AI chat drawer.
+
+Questions:
+
+```txt
+Why was this course recommended?
+Can I get admission with my score?
+Show cheaper alternatives.
+Compare with another course.
+```
+
+---
+
+# UX REQUIREMENTS
+
+Must use:
+
+```txt
+React
+TypeScript
+TailwindCSS
+Framer Motion
+React Hook Form
+Zod Validation
+Shadcn UI
+```
+
+---
+
+# ANIMATIONS
+
+Step transition:
+
+```txt
+Fade
+Slide
+Scale
+```
+
+Duration:
+
+```txt
+300ms
+```
+
+Card hover:
+
+```css
+transform:translateY(-2px);
+```
+
+Selection:
+
+Animated border glow.
+
+---
+
+# RESPONSIVE REQUIREMENTS
+
+Desktop:
+
+```txt
+Two-column layout
+```
+
+Tablet:
+
+```txt
+Stacked layout
+```
+
+Mobile:
+
+```txt
+AI mascot on top
+Question below
+Sticky continue button
+Full width cards
+```
+
+---
+
+# ACCESSIBILITY
+
+Implement:
+
+* Keyboard navigation
+* Screen reader labels
+* Focus states
+* ARIA support
+
+---
+
+# DATA STRUCTURE
+
+```ts
+interface StudentProfile {
+  countries: string[];
+  degreeLevel: string;
+  interests: string[];
+  qualification: string;
+  graduationYear: number;
+  score: number;
+  scoreType: string;
+  englishTestRequired: boolean;
+  englishTestType?: string;
+  englishScore?: number;
+  budget: number;
+  intake: string;
+  name: string;
+  email: string;
+  phone: string;
+}
+```
+
+---
+
+# FINAL EXPECTATION
+
+The final product should feel like a premium AI-guided admissions counselor, almost identical to Aspiria's flow and simplicity, but upgraded with:
+
+* Better visual hierarchy
+* Better animations
+* Better mobile UX
+* Better form validation
+* AI-powered recommendations
+* Match score system
+* Conversational onboarding
+* Modern SaaS-quality design suitable for Unix 360.
