@@ -1,38 +1,28 @@
-import api from "./api";
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-/**
- * Superadmin Query Service
- * Handles all API calls for the query management section.
- */
-
-/**
- * GET /api/v1/superadmin/queries
- * Fetch all open queries visible to the superadmin.
- */
-export const getAllQueries = async () => {
-  const response = await api.get("/api/v1/superadmin/queries");
-  return response.data;
+export const getAllQueries = async (params = {}) => {
+  await delay(300);
+  return { success: true, data: [] };
 };
 
-/**
- * PUT /api/v1/superadmin/queries/{id}/reply
- * Send a reply to an admin's query.
- * @param {string|number} id - query id
- * @param {string} reply - reply text
- */
-export const replyToQuery = async (id, reply) => {
-  const response = await api.put(`/api/v1/superadmin/queries/${id}/reply`, {
-    reply,
-  });
-  return response.data;
+export const getQueries = async (params = {}) => {
+  await delay(300);
+  return { success: true, data: [] };
 };
 
-/**
- * PUT /api/v1/superadmin/queries/{id}/close
- * Close a query (sets status to CLOSED).
- * @param {string|number} id - query id
- */
-export const closeQuery = async (id) => {
-  const response = await api.put(`/api/v1/superadmin/queries/${id}/close`, {});
-  return response.data;
+export const getQueryById = async (id) => {
+  await delay(200);
+  return null;
 };
+
+export const updateQueryStatus = async (id, status) => {
+  await delay(200);
+  return { success: true };
+};
+
+export const createQuery = async (data) => {
+  await delay(400);
+  return { success: true, data: { id: Math.floor(Math.random() * 1000), ...data } };
+};
+
+export default { getQueries, getQueryById, updateQueryStatus, createQuery };

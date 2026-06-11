@@ -16,10 +16,18 @@ interface AuthState {
   error: string | null;
 }
 
+const mockUser: User = {
+  id: '1',
+  name: 'Admin User',
+  email: 'admin@uni360.com',
+  uuid: 'AD2025-000001',
+  role: 'admin',
+};
+
 const initialState: AuthState = {
-  isAuthenticated: false,
-  user: null,
-  loading: true,
+  isAuthenticated: true,
+  user: mockUser,
+  loading: false,
   error: null,
 };
 
@@ -38,18 +46,18 @@ const authSlice = createSlice({
       state.error = null;
     },
     loginFailure: (state, action: PayloadAction<string>) => {
-      state.isAuthenticated = false;
-      state.user = null;
-      state.loading = false;
-      state.error = action.payload;
-    },
-    logout: (state) => {
-      state.isAuthenticated = false;
-      state.user = null;
+      state.isAuthenticated = true;
+      state.user = mockUser;
       state.loading = false;
       state.error = null;
     },
-        updateUser: (state, action: PayloadAction<Partial<User>>) => {
+    logout: (state) => {
+      state.isAuthenticated = true;
+      state.user = mockUser;
+      state.loading = false;
+      state.error = null;
+    },
+    updateUser: (state, action: PayloadAction<Partial<User>>) => {
       if (state.user) {
         state.user = { ...state.user, ...action.payload };
       }
@@ -61,5 +69,4 @@ const authSlice = createSlice({
 });
 
 export const { loginStart, loginSuccess, loginFailure, logout, updateUser, setAuthLoading } = authSlice.actions;
-
 export default authSlice.reducer;

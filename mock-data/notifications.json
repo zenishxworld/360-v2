@@ -1,0 +1,12 @@
+[
+  {"id": 1, "userId": 1, "title": "Application Status Update", "message": "Your application to TUM has moved to Document Verification stage.", "type": "INFO", "read": false, "timestamp": "2025-04-05T14:30:00Z"},
+  {"id": 2, "userId": 1, "title": "Document Required", "message": "Please upload your updated Statement of Purpose for TUM application.", "type": "WARNING", "read": false, "timestamp": "2025-04-04T10:00:00Z"},
+  {"id": 3, "userId": 1, "title": "Appointment Reminder", "message": "Your APS appointment is scheduled for tomorrow at 2 PM.", "type": "INFO", "read": true, "timestamp": "2025-04-01T09:00:00Z"},
+  {"id": 4, "userId": 2, "title": "Offer Letter Received", "message": "Congratulations! Cambridge has sent you an offer letter.", "type": "SUCCESS", "read": false, "timestamp": "2025-04-10T10:00:00Z"},
+  {"id": 5, "userId": 2, "title": "Payment Due", "message": "Your tuition deposit payment of £5,000 is due by April 30.", "type": "WARNING", "read": false, "timestamp": "2025-04-08T10:00:00Z"},
+  {"id": 6, "userId": 3, "title": "Application Submitted", "message": "Your application to ETH Zurich has been received.", "type": "SUCCESS", "read": false, "timestamp": "2025-04-01T12:00:00Z"},
+  {"id": 7, "userId": 4, "title": "Document Approved", "message": "Your GMAT Score Report has been verified.", "type": "SUCCESS", "read": false, "timestamp": "2025-04-08T16:00:00Z"},
+  {"id": 8, "userId": 5, "title": "Profile Incomplete", "message": "Please complete your profile builder to proceed with applications.", "type": "WARNING", "read": true, "timestamp": "2025-03-28T09:00:00Z"},
+  {"id": 9, "userId": 1, "title": "New Feature Available", "message": "AI-powered SOP generator is now available in your AI Tools section.", "type": "INFO", "read": false, "timestamp": "2025-04-06T08:00:00Z"},
+  {"id": 10, "userId": 2, "title": "Visa Guidance", "message": "New visa checklist for UK students is now available.", "type": "INFO", "read": true, "timestamp": "2025-04-02T11:00:00Z"}
+]

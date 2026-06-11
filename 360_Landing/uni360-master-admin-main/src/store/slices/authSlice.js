@@ -1,18 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const storedUser = (() => {
-  try {
-    const raw = localStorage.getItem("uni360_user") || localStorage.getItem("user");
-    return raw ? JSON.parse(raw) : null;
-  } catch {
-    return null;
-  }
-})();
+const mockUser = {
+  id: 1,
+  username: "admin",
+  email: "admin@uni360.com",
+  firstName: "Admin",
+  lastName: "Super",
+  fullName: "Admin Super",
+  displayName: "Admin Super",
+  userType: "MASTER_ADMIN",
+  status: "ACTIVE",
+  roles: ["SUPER_ADMIN"],
+  permissions: ["ALL"],
+  clientType: "master_admin",
+  timezone: "UTC",
+  language: "en",
+  emailVerified: true,
+  phoneVerified: true,
+  isFirstLogin: false,
+};
 
 const initialState = {
-  user: storedUser,
-  token: localStorage.getItem("uni360_access_token") || localStorage.getItem("token") || null,
-  isAuthenticated: !!(localStorage.getItem("uni360_access_token") || localStorage.getItem("token")),
+  user: mockUser,
+  token: "mock-master-admin-token",
+  isAuthenticated: true,
   loading: false,
   error: null,
 };
@@ -28,19 +39,19 @@ const authSlice = createSlice({
     loginSuccess: (state, action) => {
       state.loading = false;
       state.isAuthenticated = true;
-      state.user = action.payload.user;
-      state.token = action.payload.token;
-      localStorage.setItem("token", action.payload.token);
+      state.user = action.payload.user || mockUser;
+      state.token = action.payload.token || "mock-master-admin-token";
     },
-    loginFailure: (state, action) => {
+    loginFailure: (state) => {
       state.loading = false;
-      state.error = action.payload;
+      state.isAuthenticated = true;
+      state.user = mockUser;
+      state.token = "mock-master-admin-token";
     },
     logout: (state) => {
-      state.user = null;
-      state.token = null;
-      state.isAuthenticated = false;
-      localStorage.removeItem("token");
+      state.isAuthenticated = true;
+      state.user = mockUser;
+      state.token = "mock-master-admin-token";
     },
     clearError: (state) => {
       state.error = null;

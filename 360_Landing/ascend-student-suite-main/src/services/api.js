@@ -1,217 +1,98 @@
-// Use centralized token service for authenticated requests
-import { makeAuthenticatedRequest } from './tokenService.js';
+import students from "../../../../mock-data/students.json";
+import universities from "../../../../mock-data/universities.json";
+import courses from "../../../../mock-data/courses.json";
+import applications from "../../../../mock-data/applications.json";
+import notifications from "../../../../mock-data/notifications.json";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-// Generic API request function using authenticated requests
-const apiRequest = async (endpoint, options = {}) => {
-  const url = `${API_BASE_URL}${endpoint}`;
-
-  const config = {
-    method: 'GET',
-    ...options,
-  };
-
-  // Only set Content-Type for JSON requests (not for FormData)
-  if (!(options.body instanceof FormData)) {
-    config.headers = {
-      'Content-Type': 'application/json',
-      'ngrok-skip-browser-warning': 'true',
-      ...options.headers,
-    };
-  } else {
-    config.headers = {
-      'ngrok-skip-browser-warning': 'true',
-      ...options.headers,
-    };
-  }
-
-  try {
-    console.log(`[API] Making authenticated request to: ${endpoint}`);
-    
-    const data = await makeAuthenticatedRequest(endpoint, config);
-    
-    console.log(`[API] Response from ${endpoint}:`, data);
-    
-    // Handle response data structure
-    if (data && data.success && data.data !== undefined) {
-      return data.data;
-    }
-    
-    return data;
-  } catch (error) {
-    console.error(`[API] Request failed for ${endpoint}:`, error);
-    
-    // Return empty arrays for list endpoints to prevent app crashes
-    if (
-      endpoint.includes('cities') || 
-      endpoint.includes('states') || 
-      endpoint.includes('subject_areas') ||
-      endpoint.includes('filters') ||
-      endpoint.includes('degree_types') ||
-      endpoint.includes('featured') ||
-      endpoint.includes('search') ||
-      (endpoint.includes('universities') && !endpoint.match(/universities\/[a-zA-Z0-9-]+$/)) ||
-      (endpoint.includes('courses') && !endpoint.match(/courses\/[a-zA-Z0-9-]+$/))
-    ) {
-      console.warn(`[API] Returning empty array for failed ${endpoint} request`);
-      return [];
-    }
-    
-    throw error;
-  }
-};
-
-// University API endpoints
-export const universityAPI = {
-  // Get all universities with optional filters
+const universityAPI = {
   getUniversities: async (params = {}) => {
-    const queryString = new URLSearchParams();
-    
-    Object.entries(params).forEach(([key, value]) => {
-      if (value !== null && value !== undefined && value !== '' && value !== 'all') {
-        queryString.append(key, value);
-      }
-    });
-    
-    const endpoint = `/api/v1/students/universities${queryString.toString() ? `?${queryString.toString()}` : ''}`;
-    return await apiRequest(endpoint);
+    await delay(300);
+    let result = [...universities];
+    if (params.search) {
+      const s = params.search.toLowerCase();
+      result = result.filter(
+        (u) =>
+          u.name.toLowerCase().includes(s) ||
+          u.city.toLowerCase().includes(s) ||
+          u.country.toLowerCase().includes(s)
+      );
+    }
+    if (params.country && params.country !== "all") {
+      result = result.filter((u) => u.country === params.country);
+    }
+    return { data: result, totalCount: result.length };
   },
 
-  // Get university by ID
   getUniversityById: async (id) => {
-    return await apiRequest(`/api/v1/students/universities/${id}`);
+    await delay(200);
+    return universities.find((u) => u.id === Number(id)) || null;
   },
 
-  // Get university by code
   getUniversityByCode: async (code) => {
-    return await apiRequest(`/api/v1/students/universities/code/${code}`);
+    await delay(200);
+    return universities.find((u) => u.code === code) || null;
   },
 
-  // Get universities with filters
-  getUniversitiesWithFilters: async () => {
-    return await apiRequest('/api/v1/students/universities/filters');
-  },
-
-  // Get dynamic filters from backend
   getDynamicFilters: async (filterBy = null) => {
-    const endpoint = filterBy
-      ? `/api/v1/universities/filters?filterBy=${filterBy}`
-      : '/api/v1/universities/filters';
-    return await apiRequest(endpoint);
+    await delay(200);
+    if (filterBy === "country") return [...new Set(universities.map((u) => u.country))];
+    if (filterBy === "city") return [...new Set(universities.map((u) => u.city))];
+    if (filterBy === "degreeLevel") return ["Bachelor", "Master", "PhD"];
+    return { countries: [...new Set(universities.map((u) => u.country))] };
   },
 
-  // Search universities (POST request)
   searchUniversities: async (searchParams = {}) => {
-    return await apiRequest('/api/v1/students/universities/search', {
-      method: 'POST',
-      body: JSON.stringify(searchParams),
-    });
+    await delay(300);
+    return { data: universities, totalCount: universities.length };
   },
 
-  // Update university (PUT request)
-  updateUniversity: async (id, data) => {
-    return await apiRequest(`/api/v1/students/universities/${id}`, {
-      method: 'PUT',
-      body: JSON.stringify(data),
-    });
-  },
-
-  // Delete university (DELETE request)
-  deleteUniversity: async (id, reason = 'TESTING') => {
-    return await apiRequest(`/api/v1/students/universities/${id}?reason=${reason}`, {
-      method: 'DELETE',
-    });
-  },
-
-  // Upload universities Excel file
-  uploadUniversitiesExcel: async (file) => {
-    const formData = new FormData();
-    formData.append('file', file);
-    
-    return await apiRequest('/api/university/excel/universities/upload', {
-      method: 'POST',
-      body: formData,
-    });
-  },
-
-  // Upload courses Excel file
-  uploadCoursesExcel: async (file) => {
-    const formData = new FormData();
-    formData.append('file', file);
-    
-    return await apiRequest('/api/university/excel/courses/upload', {
-      method: 'POST',
-      body: formData,
-    });
-  },
-
-  // Get university courses
   getUniversityCourses: async (universityId) => {
-    const response = await apiRequest(`/api/v1/students/universities`);
-    
-    const universities =
-      response?.data?.data ||
-      response?.data ||
-      response || [];
-    
-    const university = universities.find(
-      (uni) => uni.id === universityId
-    );
-    
-    return university?.courses || [];
+    await delay(200);
+    return courses.filter((c) => c.universityId === Number(universityId));
   },
 
-  // Get all cities
   getCities: async () => {
-    return await apiRequest('/api/v1/universities/cities');
+    await delay(200);
+    return [...new Set(universities.map((u) => u.city))];
   },
 
-  // Get all states
-  getStates: async () => {
-    return await apiRequest('/api/v1/universities/states');
-  },
-
-  // Get featured universities
   getFeaturedUniversities: async () => {
-    return await apiRequest('/api/v1/universities/featured');
+    await delay(300);
+    return universities.slice(0, 3);
   },
 };
 
-// Course API endpoints
-export const courseAPI = {
-  // Get all courses with optional filters
+const courseAPI = {
   getCourses: async (params = {}) => {
-    const queryString = new URLSearchParams();
-    
-    Object.entries(params).forEach(([key, value]) => {
-      if (value !== null && value !== undefined && value !== '' && value !== 'all') {
-        queryString.append(key, value);
-      }
-    });
-    
-    const endpoint = `/api/v1/courses${queryString.toString() ? `?${queryString.toString()}` : ''}`;
-    return await apiRequest(endpoint);
+    await delay(300);
+    let result = [...courses];
+    if (params.search) {
+      const s = params.search.toLowerCase();
+      result = result.filter((c) => c.name.toLowerCase().includes(s));
+    }
+    if (params.degreeLevel && params.degreeLevel !== "all") {
+      result = result.filter((c) => c.degreeLevel === params.degreeLevel);
+    }
+    return { data: result, totalCount: result.length };
   },
 
-  // Get course by ID
   getCourseById: async (id) => {
-    return await apiRequest(`/api/v1/courses/${id}`);
+    await delay(200);
+    return courses.find((c) => c.id === Number(id)) || null;
   },
 
-  // Get all subject areas
   getSubjectAreas: async () => {
-    return await apiRequest('/api/v1/courses/subject_areas');
+    await delay(200);
+    return [...new Set(courses.map((c) => c.fieldOfStudy))];
   },
 
-  // Get all degree types
   getDegreeTypes: async () => {
-    return await apiRequest('/api/v1/courses/degree_types');
+    await delay(200);
+    return ["Bachelor", "Master", "PhD", "MBA"];
   },
 };
 
-// Export APIs
-export default {
-  university: universityAPI,
-  course: courseAPI,
-};
+export { universityAPI, courseAPI };
+export default { university: universityAPI, course: courseAPI };

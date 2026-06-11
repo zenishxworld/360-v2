@@ -1,0 +1,11 @@
+[
+  {"id": 1, "studentId": 1, "applicationId": 1, "name": "Bachelor Transcript", "type": "ACADEMIC", "status": "APPROVED", "uploadDate": "2025-03-12T10:00:00Z", "fileSize": 2450000, "fileType": "application/pdf", "remarks": "Verified by admin"},
+  {"id": 2, "studentId": 1, "applicationId": 1, "name": "Statement of Purpose", "type": "APPLICATION", "status": "PENDING", "uploadDate": "2025-03-14T11:00:00Z", "fileSize": 180000, "fileType": "application/pdf", "remarks": null},
+  {"id": 3, "studentId": 1, "applicationId": 1, "name": "Passport Copy", "type": "IDENTITY", "status": "APPROVED", "uploadDate": "2025-03-10T09:00:00Z", "fileSize": 890000, "fileType": "image/jpeg", "remarks": "Valid until 2030"},
+  {"id": 4, "studentId": 2, "applicationId": 2, "name": "IELTS Score Card", "type": "TEST_SCORE", "status": "APPROVED", "uploadDate": "2025-01-20T14:00:00Z", "fileSize": 320000, "fileType": "application/pdf", "remarks": "Overall 7.5"},
+  {"id": 5, "studentId": 2, "applicationId": 2, "name": "Letter of Recommendation", "type": "APPLICATION", "status": "APPROVED", "uploadDate": "2025-01-18T15:00:00Z", "fileSize": 210000, "fileType": "application/pdf", "remarks": "From Prof. Dr. Meier"},
+  {"id": 6, "studentId": 2, "applicationId": 2, "name": "CV/Resume", "type": "APPLICATION", "status": "APPROVED", "uploadDate": "2025-01-16T10:00:00Z", "fileSize": 156000, "fileType": "application/pdf", "remarks": null},
+  {"id": 7, "studentId": 3, "applicationId": 3, "name": "Bachelor Transcript", "type": "ACADEMIC", "status": "PENDING", "uploadDate": "2025-04-02T08:00:00Z", "fileSize": 3100000, "fileType": "application/pdf", "remarks": "Needs verification"},
+  {"id": 8, "studentId": 4, "applicationId": 4, "name": "GMAT Score Report", "type": "TEST_SCORE", "status": "APPROVED", "uploadDate": "2025-02-25T12:00:00Z", "fileSize": 280000, "fileType": "application/pdf", "remarks": "Score 720"},
+  {"id": 9, "studentId": 4, "applicationId": 4, "name": "MBA Essays", "type": "APPLICATION", "status": "PENDING", "uploadDate": "2025-03-01T09:00:00Z", "fileSize": 450000, "fileType": "application/pdf", "remarks": "Under review"}
+]

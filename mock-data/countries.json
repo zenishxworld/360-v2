@@ -1,0 +1,7 @@
+[
+  {"code": "DE", "name": "Germany", "flagUrl": "/flags/de.png", "isActive": true, "currency": "EUR", "language": "German", "description": "Study in Germany - World-class education at public universities with no or low tuition fees."},
+  {"code": "UK", "name": "United Kingdom", "flagUrl": "/flags/uk.png", "isActive": true, "currency": "GBP", "language": "English", "description": "Study in the UK - Home to some of the world's most prestigious universities."},
+  {"code": "IT", "name": "Italy", "flagUrl": "/flags/it.png", "isActive": true, "currency": "EUR", "language": "Italian", "description": "Study in Italy - Rich cultural heritage with affordable education."},
+  {"code": "RS", "name": "Serbia", "flagUrl": "/flags/rs.png", "isActive": true, "currency": "RSD", "language": "Serbian", "description": "Study in Serbia - Growing education hub in Eastern Europe."},
+  {"code": "CH", "name": "Switzerland", "flagUrl": "/flags/ch.png", "isActive": false, "currency": "CHF", "language": "German/French/Italian", "description": "Study in Switzerland - High-quality education with stunning Alpine backdrop."}
+]

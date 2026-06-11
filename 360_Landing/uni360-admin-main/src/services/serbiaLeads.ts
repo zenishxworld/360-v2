@@ -1,59 +1,22 @@
-// Serbia Lead API service for admin portal
-import { api } from './api';
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-export interface SerbiaLeadResponse {
-  id: string;
-  student_id: number;
-  student_name: string;
-  student_email: string;
-  preferred_intake: string;
-  preferred_degree: string;
-  interested_universities: string[];
-  interested_courses: string[];
-  additional_notes?: string;
-  status: string;
-  submitted_at: string;
-  created_at: string;
-  updated_at: string;
-  updated_by?: string;
-}
-
-export interface SerbiaLeadStatusUpdate {
-  status: string;
-  notes?: string;
-}
-
-export const serbiaLeadsAPI = {
-  /**
-   * Get all Serbia leads (admin).
-   */
-  getAllLeads: async (): Promise<SerbiaLeadResponse[]> => {
-    const response = await api.get('/api/v1/admin/serbia/leads');
-    if (response.data?.success) {
-      return response.data.data;
-    }
-    return response.data || [];
+export const serbiaLeadAPI = {
+  getLeads: async (params) => {
+    await delay(300);
+    return { success: true, data: [] };
   },
-
-  /**
-   * Get a single lead by ID (admin).
-   */
-  getLeadById: async (id: string): Promise<SerbiaLeadResponse> => {
-    const response = await api.get(`/api/v1/admin/serbia/leads/${id}`);
-    if (response.data?.success) {
-      return response.data.data;
-    }
-    return response.data;
+  getLeadById: async (id) => {
+    await delay(200);
+    return null;
   },
-
-  /**
-   * Update lead status (admin).
-   */
-  updateLeadStatus: async (id: string, update: SerbiaLeadStatusUpdate): Promise<SerbiaLeadResponse> => {
-    const response = await api.put(`/api/v1/admin/serbia/leads/${id}/status`, update);
-    if (response.data?.success) {
-      return response.data.data;
-    }
-    return response.data;
+  createLead: async (leadData) => {
+    await delay(500);
+    return { success: true, data: { id: Math.floor(Math.random() * 1000), ...leadData } };
+  },
+  updateLeadStatus: async (id, status) => {
+    await delay(200);
+    return { success: true };
   },
 };
+
+export default serbiaLeadAPI;
