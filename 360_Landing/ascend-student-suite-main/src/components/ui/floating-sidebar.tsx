@@ -4,51 +4,32 @@ import { cn } from "@/lib/utils";
 import {
   Home,
   FileText,
-  GraduationCap,
   Plane,
   CreditCard,
   FolderOpen,
   BookOpen,
   Bot,
-  MessageCircle,
   Settings,
   LogOut,
-  MoreHorizontal,
-  X,
   User,
   Compass,
-  Star,
-  Bookmark,
-  SlidersHorizontal
 } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 
 const navigationItems = [
   { title: "Dashboard", url: "/dashboard", icon: Home },
-  { title: "Preferences", url: "/preferences", icon: SlidersHorizontal },
-  { title: "Discover", url: "/discover", icon: Compass },
-  { title: "Recommendations", url: "/recommendations", icon: Star },
-  { title: "Saved", url: "/saved", icon: Bookmark },
+  { title: "University Finder", url: "/university-finder", icon: Compass },
   { title: "Applications", url: "/applications", icon: FileText },
   { title: "Documents", url: "/documents", icon: FolderOpen },
-  { title: "Universities", url: "/universities", icon: GraduationCap },
   { title: "AI Tools", url: "/ai-tools", icon: Bot },
   { title: "Finances", url: "/finances", icon: CreditCard },
   { title: "Visa", url: "/visa", icon: Plane },
   { title: "Resources", url: "/resources", icon: BookOpen },
-];
-
-// Primary navigation items for mobile (most important ones) - ensuring Dashboard is first
-const primaryNavItems = [
-  { title: "Dashboard", url: "/dashboard", icon: Home },
-  { title: "Discover", url: "/discover", icon: Compass },
-  { title: "Recommendations", url: "/recommendations", icon: Star },
-  { title: "Applications", url: "/applications", icon: FileText },
+  { title: "Profile Builder", url: "/profilebuilder", icon: User },
 ];
 
 export function FloatingSidebar() {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [showMobileMenu, setShowMobileMenu] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const { logout } = useAuth();
@@ -62,9 +43,6 @@ export function FloatingSidebar() {
       navigate('/login');
     }
   };
-
-  const toggleMobileMenu = () => setShowMobileMenu(!showMobileMenu);
-  const closeMobileMenu = () => setShowMobileMenu(false);
 
   return (
     <>
@@ -87,7 +65,7 @@ export function FloatingSidebar() {
         <nav className="flex-1 p-2 overflow-y-auto scrollbar-hide">
           <div className="space-y-1">
             {navigationItems.map((item) => {
-              const isActive = location.pathname === item.url;
+              const isActive = location.pathname.startsWith(item.url);
               return (
                 <NavLink
                   key={item.url}
@@ -122,31 +100,8 @@ export function FloatingSidebar() {
           </div>
         </nav>
 
-        {/* Desktop Profile Section */}
+        {/* Sign Out */}
         <div className="border-t border-border/50 p-2 flex-shrink-0">
-          <NavLink
-            to="/profilebuilder"
-            className={cn(
-              "flex items-center gap-3 px-3 py-2 rounded-xl",
-              "transition-all duration-200 ease-out",
-              "text-muted-foreground hover:text-foreground hover:bg-muted",
-              "whitespace-nowrap",
-              location.pathname === "/profilebuilder" && "bg-primary text-primary-foreground shadow-soft"
-            )}
-          >
-            <User className="w-5 h-5 flex-shrink-0" />
-            <span
-              className={cn(
-                "font-medium transition-all duration-300 ease-out",
-                isExpanded 
-                  ? "opacity-100 translate-x-0 delay-100" 
-                  : "opacity-0 -translate-x-2 delay-0"
-              )}
-            >
-              Profile Builder
-            </span>
-          </NavLink>
-          
           <button
             onClick={handleSignOut}
             className={cn(
@@ -170,8 +125,6 @@ export function FloatingSidebar() {
           </button>
         </div>
       </aside>
-
-      {/* Mobile navigation removed — handled by hamburger drawer in AppLayout */}
     </>
   );
 }

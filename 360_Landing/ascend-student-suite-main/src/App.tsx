@@ -27,6 +27,7 @@ import Preferences from "./pages/Preferences";
 import Discover from "./pages/Discover";
 import Recommendations from "./pages/Recommendations";
 import Saved from "./pages/Saved";
+import UniversityFinder from "./pages/UniversityFinder";
 import AIProfileEvaluation from "./pages/AIProfileEvaluation";
 import AIProfileEvaluationResults from "./pages/AIProfileEvaluationResults";
 import { useEffect } from "react";
@@ -64,6 +65,7 @@ const App = () => {
 
             <Route path="/" element={<AppLayout />}>
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/university-finder" element={<UniversityFinder />} />
               <Route path="/preferences" element={<Preferences />} />
               <Route path="/discover" element={<Discover />} />
               <Route path="/recommendations" element={<Recommendations />} />

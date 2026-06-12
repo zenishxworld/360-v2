@@ -3,7 +3,7 @@ import { Outlet, useNavigate, useLocation, NavLink } from "react-router-dom";
 import { FloatingSidebar } from "@/components/ui/floating-sidebar";
 import { CountryToggle } from "@/components/ui/country-toggle";
 import { Footer } from "@/components/ui/Footer";
-import { Bell, User, Settings, LogOut, ChevronDown, X, CheckCheck, ExternalLink, SettingsIcon, CheckCircle2, FileText, Megaphone, Clock, Info, GraduationCap, BookOpen, ListChecks, Layers, CalendarCheck, Check, Menu, Home, FolderOpen, Plane, CreditCard, Bot } from "lucide-react";
+import { Bell, User, Settings, LogOut, ChevronDown, X, CheckCheck, ExternalLink, SettingsIcon, CheckCircle2, FileText, Megaphone, Clock, Info, GraduationCap, BookOpen, ListChecks, Layers, CalendarCheck, Check, Menu, Home, FolderOpen, Plane, CreditCard, Bot, Compass } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/contexts/AuthContext";
 import {
@@ -831,9 +831,9 @@ const NotificationItem = ({ notification, isInModal = false }: { notification: N
             <nav className="flex-1 overflow-y-auto p-3 space-y-1">
               {[
                 { title: "Dashboard", url: "/dashboard", icon: Home },
-                { title: "Documents", url: "/documents", icon: FolderOpen },
-                { title: "Universities", url: "/universities", icon: GraduationCap },
+                { title: "University Finder", url: "/university-finder", icon: Compass },
                 { title: "Applications", url: "/applications", icon: FileText },
+                { title: "Documents", url: "/documents", icon: FolderOpen },
                 { title: "AI Tools", url: "/ai-tools", icon: Bot },
                 { title: "Finances", url: "/finances", icon: CreditCard },
                 { title: "Visa", url: "/visa", icon: Plane },
