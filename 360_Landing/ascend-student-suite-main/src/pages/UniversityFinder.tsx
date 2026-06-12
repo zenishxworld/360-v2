@@ -19,6 +19,7 @@ import {
   Star, GraduationCap, MapPin, Heart, Send, Sparkles,
   TrendingUp, ShieldCheck, Target, Search, Filter, X,
   Bookmark, Trash2, ExternalLink, SlidersHorizontal,
+  GitCompare,
 } from "lucide-react";
 
 // ── Preferences config ───────────────────────────────────────
@@ -70,6 +71,22 @@ const TIER_CONFIG: Record<RecommendationTier, { label: string; icon: typeof Star
 const COUNTRIES = [...new Set(mockUniversities.map((u) => u.country))].sort();
 const DEGREES = ["Bachelor", "Master", "PhD"];
 const FIELDS = [...new Set(mockCourses.map((c) => c.fieldOfStudy))].sort();
+
+// ── Demo mode ───────────────────────────────────────────────
+const DEMO_MODE = true;
+
+const DEMO_PREFERENCES: StudentPreferences = {
+  preferredCountries: ["Germany"],
+  degreeLevel: "Master",
+  targetCourse: "Computer Science",
+  cgpa: 8.2,
+  ielts: 7.0,
+  toefl: 0,
+  pte: 0,
+  gre: 310,
+  gmat: 0,
+  workExperience: "1 Year",
+};
 
 // ── Section types ───────────────────────────────────────────
 type Section = "preferences" | "results";
@@ -177,6 +194,26 @@ function PreferencesSection({ onComplete, isComplete }: { onComplete: () => void
     prefs.ielts > 0 ? "ielts" : prefs.toefl ? "toefl" : prefs.pte ? "pte" : null
   );
   const [saved, setSaved] = useState(isComplete);
+
+  const handleLoadDemo = () => {
+    const demoPrefs: StudentPreferences = {
+      preferredCountries: ["Germany"],
+      degreeLevel: "Master",
+      targetCourse: "Computer Science",
+      cgpa: 8.2,
+      ielts: 7.0,
+      toefl: 0,
+      pte: 0,
+      gre: 310,
+      gmat: 0,
+      workExperience: "1 Year",
+    };
+    setPrefs(demoPrefs);
+    setShowEnglishTest("ielts");
+    preferenceStore.save(demoPrefs);
+    setSaved(true);
+    onComplete();
+  };
 
   const update = <K extends keyof StudentPreferences>(key: K, value: StudentPreferences[K]) => {
     setPrefs((p) => ({ ...p, [key]: value }));
@@ -435,6 +472,18 @@ function PreferencesSection({ onComplete, isComplete }: { onComplete: () => void
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.3 }}
     >
+      {/* Demo Mode Button */}
+      {DEMO_MODE && !isComplete && (
+        <div className="text-center mb-6">
+          <Button
+            onClick={handleLoadDemo}
+            className="bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white rounded-xl px-6 py-3 text-base font-semibold shadow-lg hover:shadow-xl transition-all"
+          >
+            🚀 Load Demo Profile
+          </Button>
+        </div>
+      )}
+
       {/* Step Progress */}
       <div className="flex items-center gap-1 mb-8 overflow-x-auto pb-2">
         {STEPS.map((s, i) => (
@@ -512,6 +561,18 @@ function ResultsSection() {
   const navigate = useNavigate();
   const prefs = preferenceStore.get();
   const [recommendationTab, setRecommendationTab] = useState<RecommendationTier | "all">("all");
+  const [compareIds, setCompareIds] = useState<number[]>([]);
+  const [showCompare, setShowCompare] = useState(false);
+
+  const toggleCompare = (uniId: number) => {
+    setCompareIds((prev) =>
+      prev.includes(uniId) ? prev.filter((id) => id !== uniId) : [...prev, uniId].slice(-2)
+    );
+  };
+
+  const compareUniversities = compareIds
+    .map((id) => mockUniversities.find((u) => u.id === id))
+    .filter(Boolean) as University[];
 
   const recommendations = useMemo(() => {
     if (!preferenceStore.hasPreferences()) return [];
@@ -675,6 +736,19 @@ function ResultsSection() {
                       />
                       {isSaved ? "Saved" : "Save"}
                     </Button>
+                    <Button
+                      variant="outline"
+                      className="flex-1 rounded-xl text-sm"
+                      onClick={() => toggleCompare(rec.university.id)}
+                    >
+                      <GitCompare
+                        className={cn(
+                          "w-4 h-4 mr-1.5",
+                          compareIds.includes(rec.university.id) && "text-[#E08D3C]"
+                        )}
+                      />
+                      Compare
+                    </Button>
                   </div>
                 </div>
               </Card>
@@ -697,6 +771,85 @@ function ResultsSection() {
 
       {/* ═══ SAVED ═══ */}
       <SavedSection />
+
+      {/* Compare Bar & Modal */}
+      {compareIds.length > 0 && (
+        <>
+          <motion.div
+            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 flex items-center gap-3 bg-white/95 backdrop-blur-md border-2 border-[#E08D3C]/30 shadow-2xl rounded-2xl px-5 py-3"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+          >
+            <GitCompare className="w-5 h-5 text-[#E08D3C]" />
+            <span className="text-sm font-semibold text-[#2C3539]">
+              {compareIds.length} of 2 selected
+            </span>
+            <Button
+              size="sm"
+              className="bg-[#E08D3C] hover:bg-[#c97a2e] text-white rounded-lg"
+              disabled={compareIds.length < 2}
+              onClick={() => setShowCompare(true)}
+            >
+              Compare Now
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setCompareIds([])}
+            >
+              <X className="w-4 h-4" />
+            </Button>
+          </motion.div>
+
+          <Dialog open={showCompare} onOpenChange={setShowCompare}>
+            <DialogContent className="max-w-4xl max-h-[85vh] overflow-y-auto">
+              <DialogHeader>
+                <DialogTitle className="text-xl font-bold text-[#2C3539] flex items-center gap-2">
+                  <GitCompare className="w-5 h-5 text-[#E08D3C]" />
+                  University Comparison
+                </DialogTitle>
+              </DialogHeader>
+              {compareUniversities.length >= 2 && (
+                <div className="mt-4 overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr>
+                        <th className="text-left p-3 bg-gray-50 rounded-l-lg font-semibold text-[#2C3539] w-32">Metric</th>
+                        {compareUniversities.map((u) => (
+                          <th key={u.id} className="p-3 bg-gray-50 text-center font-semibold text-[#2C3539]">
+                            {u.name}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {[
+                        { label: "Country", key: "country" as const },
+                        { label: "City", key: "city" as const },
+                        { label: "Type", key: "type" as const },
+                        { label: "QS Ranking", key: "qsRanking" as const },
+                        { label: "Acceptance Rate", key: "acceptanceRate" as const },
+                        { label: "Tuition Fee", key: "tuitionFee" as const },
+                        { label: "Language", key: "language" as const },
+                        { label: "Application Fee", key: "applicationFee" as const },
+                      ].map(({ label, key }) => (
+                        <tr key={key} className="border-b border-gray-100">
+                          <td className="p-3 font-medium text-muted-foreground">{label}</td>
+                          {compareUniversities.map((u) => (
+                            <td key={u.id} className="p-3 text-center text-[#2C3539]">
+                              {key === "qsRanking" ? `#${u[key]}` : u[key]}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </DialogContent>
+          </Dialog>
+        </>
+      )}
     </motion.div>
   );
 }
@@ -713,6 +866,19 @@ function DiscoverSection() {
   const [selectedFields, setSelectedFields] = useState<string[]>([]);
   const [selectedUni, setSelectedUni] = useState<University | null>(null);
   const [showDetail, setShowDetail] = useState(false);
+  const [compareIds, setCompareIds] = useState<number[]>([]);
+  const [showCompare, setShowCompare] = useState(false);
+
+  const toggleCompare = (uniId: number, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCompareIds((prev) =>
+      prev.includes(uniId) ? prev.filter((id) => id !== uniId) : [...prev, uniId].slice(-2)
+    );
+  };
+
+  const compareUniversities = compareIds
+    .map((id) => mockUniversities.find((u) => u.id === id))
+    .filter(Boolean) as University[];
 
   const toggleCountry = (c: string) =>
     setSelectedCountries((p) => p.includes(c) ? p.filter((x) => x !== c) : [...p, c]);
@@ -923,6 +1089,23 @@ function DiscoverSection() {
                   <Badge variant="outline" className="text-[10px]">+{uni.programs.length - 3}</Badge>
                 )}
               </div>
+
+              <div className="flex gap-2 mt-3 pt-3 border-t border-gray-100">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  className="flex-1 rounded-lg text-xs"
+                  onClick={(e) => toggleCompare(uni.id, e)}
+                >
+                  <GitCompare
+                    className={cn(
+                      "w-3 h-3 mr-1",
+                      compareIds.includes(uni.id) && "text-[#E08D3C]"
+                    )}
+                  />
+                  Compare
+                </Button>
+              </div>
             </Card>
           );
         })}
@@ -1042,6 +1225,85 @@ function DiscoverSection() {
           )}
         </DialogContent>
       </Dialog>
+
+      {/* Compare Bar & Modal for Discover */}
+      {compareIds.length > 0 && (
+        <>
+          <motion.div
+            className="fixed bottom-24 left-1/2 -translate-x-1/2 z-40 flex items-center gap-3 bg-white/95 backdrop-blur-md border-2 border-[#E08D3C]/30 shadow-2xl rounded-2xl px-5 py-3"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+          >
+            <GitCompare className="w-5 h-5 text-[#E08D3C]" />
+            <span className="text-sm font-semibold text-[#2C3539]">
+              {compareIds.length} of 2 selected
+            </span>
+            <Button
+              size="sm"
+              className="bg-[#E08D3C] hover:bg-[#c97a2e] text-white rounded-lg"
+              disabled={compareIds.length < 2}
+              onClick={() => setShowCompare(true)}
+            >
+              Compare Now
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setCompareIds([])}
+            >
+              <X className="w-4 h-4" />
+            </Button>
+          </motion.div>
+
+          <Dialog open={showCompare} onOpenChange={setShowCompare}>
+            <DialogContent className="max-w-4xl max-h-[85vh] overflow-y-auto">
+              <DialogHeader>
+                <DialogTitle className="text-xl font-bold text-[#2C3539] flex items-center gap-2">
+                  <GitCompare className="w-5 h-5 text-[#E08D3C]" />
+                  University Comparison
+                </DialogTitle>
+              </DialogHeader>
+              {compareUniversities.length >= 2 && (
+                <div className="mt-4 overflow-x-auto">
+                  <table className="w-full text-sm">
+                    <thead>
+                      <tr>
+                        <th className="text-left p-3 bg-gray-50 rounded-l-lg font-semibold text-[#2C3539] w-32">Metric</th>
+                        {compareUniversities.map((u) => (
+                          <th key={u.id} className="p-3 bg-gray-50 text-center font-semibold text-[#2C3539]">
+                            {u.name}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {[
+                        { label: "Country", key: "country" as const },
+                        { label: "City", key: "city" as const },
+                        { label: "Type", key: "type" as const },
+                        { label: "QS Ranking", key: "qsRanking" as const },
+                        { label: "Acceptance Rate", key: "acceptanceRate" as const },
+                        { label: "Tuition Fee", key: "tuitionFee" as const },
+                        { label: "Language", key: "language" as const },
+                        { label: "Application Fee", key: "applicationFee" as const },
+                      ].map(({ label, key }) => (
+                        <tr key={key} className="border-b border-gray-100">
+                          <td className="p-3 font-medium text-muted-foreground">{label}</td>
+                          {compareUniversities.map((u) => (
+                            <td key={u.id} className="p-3 text-center text-[#2C3539]">
+                              {key === "qsRanking" ? `#${u[key]}` : u[key]}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </DialogContent>
+          </Dialog>
+        </>
+      )}
     </section>
   );
 }
