@@ -39,11 +39,11 @@ function App() {
         <TooltipProvider>
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Navigate to="/dashboard" replace />} />
-              <Route path="/login" element={<Navigate to="/dashboard" replace />} />
-              <Route path="/signup" element={<Navigate to="/dashboard" replace />} />
-              <Route path="/register-b2b" element={<Navigate to="/dashboard" replace />} />
-              <Route path="/admin/login" element={<Navigate to="/dashboard" replace />} />
+              <Route path="/" element={<Navigate to="/students" replace />} />
+              <Route path="/login" element={<Navigate to="/students" replace />} />
+              <Route path="/signup" element={<Navigate to="/students" replace />} />
+              <Route path="/register-b2b" element={<Navigate to="/students" replace />} />
+              <Route path="/admin/login" element={<Navigate to="/students" replace />} />
 
               <Route element={<MainLayout />}>
                 <Route path="/dashboard" element={<Dashboard />} />

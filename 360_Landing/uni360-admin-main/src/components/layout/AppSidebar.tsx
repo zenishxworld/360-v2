@@ -73,19 +73,18 @@ const CommunityIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 );
 
 const navigationItems = [
-  { title: "Dashboard", url: "/dashboard", icon: Home },
-  { title: "Applications", url: "/applications", icon: FileText },
-  { title: "Documents", url: "/documents", icon: Upload },
-  { title: "Payments", url: "/payments", icon: CreditCard },
-  { title: "Appointments", url: "/appointments", icon: Calendar },
-  { title: "Students", url: "/students", icon: GraduationCap },
-  { title: "Interests", url: "/interests", icon: GraduationCap },
-  { title: "Support", url: "/support", icon: CommunityIcon },
+  { title: "Students",       url: "/students",       icon: GraduationCap },
+  { title: "Dashboard",      url: "/dashboard",      icon: Home },
+  { title: "Applications",   url: "/applications",   icon: FileText },
+  { title: "Documents",      url: "/documents",      icon: Upload },
+  { title: "Payments",       url: "/payments",       icon: CreditCard },
+  { title: "Appointments",   url: "/appointments",   icon: Calendar },
+  { title: "Support",        url: "/support",        icon: CommunityIcon },
   { title: "Communications", url: "/communications", icon: ChatLinesIcon },
-  { title: "AI Tools", url: "/ai-tools", icon: Bot },
-  { title: "Resources", url: "/resources", icon: Calendar },
-  { title: "Universities", url: "/universities", icon: Building2 },
-  { title: "History", url: "/history", icon: Clock },
+  { title: "AI Tools",       url: "/ai-tools",       icon: Bot },
+  { title: "Resources",      url: "/resources",      icon: Calendar },
+  { title: "Universities",   url: "/universities",   icon: Building2 },
+  { title: "History",        url: "/history",        icon: Clock },
 ];
 
 export const AppSidebar: React.FC = () => {
